@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de consultorios</title>
+</head>
+<body>
+    <h1> Lista de consultorios</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Numero</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in consultorios %}
+                <tr>
+                    <td> {{ c.numero }} </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+</body>
+</html>

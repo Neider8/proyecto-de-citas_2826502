@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Medicos</title>
+</head>
+<body>
+    <h1> Lista de Citas</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>fecha</th>
+                <th>paciente_id</th>
+                <th>medico_id</th>
+                <th>consultorio_id</th>
+                <th>valor</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in citas %}
+                <tr>
+                    <td> {{ c.paciente_id }} </td>
+                    <td> {{ c.medico_id }} </td>
+                    <td> {{ c.consultorio_id }}</td>
+                    <td> {{ c.valor }} </td>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+</body>
+</html>
