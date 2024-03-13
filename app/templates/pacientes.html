@@ -23,14 +23,14 @@
             </tr>
         </thead>
         <tbody>
-            {% for p in pacientes %}
+            {% for paciente in pacientes %}
                 <tr>
-                    <td> {{ p.nombre }} </td>
-                    <td> {{ p.apellido }} </td>
-                    <td> {{ p.tipo_identificacion }} </td>
-                    <th> {{ p.numero_identificacion }} </th>
-                    <td> {{ p.altura }} </td>
-                    <td> {{ p.tipo_sangre }} </td>
+                    <td> {{ paciente.nombres }} </td>
+                    <td> {{ paciente.apellidos }} </td>
+                    <td> {{ paciente.tipo_identificacion }} </td>
+                    <th> {{ paciente.numero_identificacion }} </th>
+                    <td> {{ paciente.altura }} </td>
+                    <td> {{ paciente.tipo_sangre }} </td>
                     <td>
                         <a href="/pacientes/{{ paciente.id }}">
                             Ver detalles
