@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Actualizar Medico </h1>
+   
+    <form method="post" action="/medicos/update/{{medico_update.id}}">
+        <p>Nombre: <input type="text"
+                        name="nombres" 
+                        value="{{ medico_update.nombres }}" > 
+            </p>
+        <p>Apellidos: <input type="text"
+             name="apellidos"
+             value= "{{ medico_update.apellidos }}" > </p>
+        <p>Tipo identificacion: 
+            <select name="ti" >
+                <option 
+                    {% if medico_update.tipo_identificacion == "TI" %}    
+                        selected 
+                    {% endif %}
+                >
+                    TI
+                </option>
+                <option
+                    {% if medico_update.tipo_identificacion == "CC" %}    
+                        selected 
+                    {% endif %}
+                
+                >
+                    CC
+                </option>
+            </select>
+        </p>
+        <P> Numero Identificacion:
+            <input type="text"
+             name="ni" 
+             value= "{{ medico_update.numero_identificacion }}">
+             
+        </P>
+        <p> Registro Medico:
+            <input type="text" 
+            name="rm"
+            value= "{{ medico_update.registro_medico }}">
+        </p>
+        <p>
+            Especialidad:
+            <select name="es">
+                {% for especialidad in especialidades %}
+                    
+                        <option
+                        {% if medico_update.especialidad == especialidad %}
+                            select
+                        {% endif %}
+                        
+                        > 
+                        
+                        {{ especialidad }} </option>
+                {% endfor %}
+            </select>
+        </p>
+
+        <button>Actualizar</button>
+    </form>
+</body>
+</html>

@@ -1,6 +1,6 @@
 from . import app, db
 from . models import Medico, Paciente, Consultorio, Cita
-from flask import render_template, request
+from flask import render_template, request, flash , redirect
 
 #crear ruta para ver los medicos
 @app.route("/medicos")
@@ -94,7 +94,8 @@ def create_medico():
 #añadirlo a la sesion sqlalchemy
         db.session.add(new_medico)
         db.session.commit()
-        return "medico registrado"
+        flash("Medico registrado correctamente")
+        return redirect("/medicos")
 
 ###formularios
 @app.route("/pacientes/create" , methods = [ "GET" , "POST"])
@@ -178,3 +179,36 @@ def create_consultorio():
         db.session.add(new_consultorio)
         db.session.commit()
         return "consultorio registrado"
+    
+    
+@app.route("/medicos/update/<int:id>", methods=["POST" , "GET"])
+def update_medico(id):
+    especialidades = [
+            "Cardiologia",
+            "Pediatria",
+            "Oncologia"
+         ]
+    medico_update = Medico.query.get(id)
+    if(request.method == "GET"):
+        return render_template("medico_update.html",
+                           medico_update = medico_update,
+                           especialidades = especialidades)
+    elif(request.method == "POST"):
+       
+        #actualizar el medico, con los datos del form
+        medico_update.nombres = request.form["nombres"]
+        medico_update.apellidos = request.form["apellidos"]
+        medico_update.tipo_identificacion = request.form["ti"]
+        medico_update.numero_identificacion = request.form["ni"]
+        medico_update.registro_medico = request.form["rm"]
+        medico_update.especialidad = request.form["es"]
+        db.session.commit()
+        return redirect("/medicos")
+    
+@app.route("/medicos/delete/<int:id>")
+def delete_medico(id):
+    medico_delete = Medico.query.get(id)
+    db.session.delete(medico_delete)
+    db.session.commit()
+    return redirect("/medicos")
+        
