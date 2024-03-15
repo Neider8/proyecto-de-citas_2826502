@@ -13,6 +13,8 @@
             <tr>
                 <th>Numero</th>
                 <th>ver detalles</th>
+                <th>Actualizar</th>
+                <th>Eliminar</th>
                 
             </tr>
         </thead>
@@ -23,6 +25,16 @@
                     <td>
                         <a href="/consultorios/{{ consultorio.id }}">
                             Ver detalles
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/consultorios/update/{{ consultorio.id }}">
+                            Actualizar
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/consultorios/delete/{{ consultorio.id }}">
+                            Eliminar
                         </a>
                     </td>
                 </tr>

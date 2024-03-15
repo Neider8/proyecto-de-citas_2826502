@@ -19,6 +19,8 @@
                 <th>altura</th>
                 <th>tipo_sangre</th>
                 <th>Ver detalles</th>
+                <th>Actualizar</th>
+                <th>Eliminar</th>
 
             </tr>
         </thead>
@@ -34,6 +36,16 @@
                     <td>
                         <a href="/pacientes/{{ paciente.id }}">
                             Ver detalles
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/pacientes/update/{{ paciente.id }}">
+                            Actualizar
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/pacientes/delete/{{ paciente.id }}">
+                            Eliminar
                         </a>
                     </td>
                 </tr>
